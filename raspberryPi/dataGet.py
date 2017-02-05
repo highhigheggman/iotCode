@@ -12,4 +12,11 @@ if __name__ =='__main__':
     ser_ls = serial.tools.list_ports.comports()
 
     for i in ser_ls:
-        print (i);
+        print (i)
+        ser.port = i
+        ser.open()
+
+        num=ser.read(5)
+
+        print(num)
+

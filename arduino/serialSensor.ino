@@ -1,10 +1,17 @@
-const int analogPin01 = 0;
+//const int analogPin01 = A0;
 int valPin01 = 0;
 
 void setup(){
-    Serial.begin(9600);//シリアル通信のレートを9600に設定
+    Serial.begin(9600);
 }
 
 void loop(){
-    valPin01 = analogRead(analogPin01);
+    //read sensor val
+    //valPin01 = analogRead(analogPin01);
+    valPin01++;
+
+    //send sensor val
+    Serial.write(valPin01);
+
+    delay(3000);
 }
