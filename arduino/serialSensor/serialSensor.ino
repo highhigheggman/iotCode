@@ -1,3 +1,5 @@
+#include <avr/sleep.h>
+
 //const int analogPin01 = A0;
 int valPin01 = 0;
 
