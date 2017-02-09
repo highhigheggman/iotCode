@@ -4,23 +4,25 @@
 import serial
 import serial.tools.list_ports
 import time
+import subprocess
 
 if __name__ =='__main__':
 
     # wait arduino bootup
-    time.sleep(2.0)
+    time.sleep(3.0)
 
+    # serial setting
     ser = serial.Serial()
     ser.baudrate = 9600
 
     # get a list of ports
-    #ser_ls = serial.tools.list_ports.comports()
+    # ser_ls = serial.tools.list_ports.comports()
 
     ser.port = '/dev/tty.usbmodem14341'
     ser.open()
 
     while True:
-        num=ser.read
+        num=ser.readline
         print(num)
 
     """
@@ -29,7 +31,11 @@ if __name__ =='__main__':
         ser.port = i
         ser.open()
 
-        num=ser.read(5)
+        num=ser.readline()
 
         print(num)
-"""
+    """
+
+    # suspend
+    # subprocess.call(["rtcwake", "-m", "mem", "-s", "900"])
+
