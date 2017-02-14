@@ -15,15 +15,18 @@ if __name__ =='__main__':
     ser = serial.Serial()
     ser.baudrate = 9600
 
-    # get a list of ports
-    # ser_ls = serial.tools.list_ports.comports()
+    num = 0
 
-    ser.port = '/dev/tty.usbmodem14341'
+    # get a list of ports
+    # ser_ls = serial.tools.list_ports.grep(pattern)
+
+    ser.port = '/dev/cu.wchusbserial14110'
     ser.open()
 
     while True:
-        num=ser.readline
-        print(num)
+        if (ser.inWaiting() > 0):
+            num = int(ser.readline())
+            print(num)
 
     """
     for i in ser_ls:
