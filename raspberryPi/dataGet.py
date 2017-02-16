@@ -20,6 +20,7 @@ if __name__ =='__main__':
     # get a list of ports
     # ser_ls = serial.tools.list_ports.grep(pattern)
 
+"""
     ser.port = '/dev/cu.wchusbserial14110'
     ser.open()
 
@@ -34,10 +35,9 @@ if __name__ =='__main__':
         ser.port = i
         ser.open()
 
-        num=ser.readline()
+        #num=ser.readline()
 
-        print(num)
-    """
+        #print(num)
 
     # suspend
     # subprocess.call(["rtcwake", "-m", "mem", "-s", "900"])

@@ -7,9 +7,8 @@ void setup() {
 
 void loop() {
   //read sensor val
-  //valPin01 = analogRead(analogPin01);
+  valPin01 = analogRead(analogPin01);
 
-  valPin01 = valPin01 + 2;
   //send sensor val
   Serial.println(valPin01, DEC);
   Serial.flush();
