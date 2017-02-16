@@ -13,8 +13,13 @@ if __name__ =='__main__':
     time.sleep(3.0)
 
     # serial setting
-    ser = serial.Serial()
-    ser.baudrate = 9600
+    ser = serial.Serial(
+        baudrate = 9600,
+        bytesize = 8,
+        parity = serial.PARITY_EVEN,
+        stopbits = serial.STOPBITS_ONE,
+        timeout = 1
+    )
 
     num = 0
 
