@@ -5,7 +5,7 @@ import serial
 import serial.tools.list_ports
 import time
 import subprocess
-from operator import itemgetter, attrgetter
+from operator import attrgetter
 
 if __name__ =='__main__':
 
