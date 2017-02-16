@@ -26,25 +26,21 @@ if __name__ =='__main__':
 
 
     for i in ser_ls:
+        ser.port = i.device
+        ser.open()
+
+        # wait data
+        while(ser.inWaiting() < 0):
+            time.sleep(0.1)
+
+        # read data
+        num = int(ser.readline())
+
         print(i.device)
-        print(i.location)
-        print(i.hwid)
+        print(num)
 
-        #num=ser.readline()
+        ser.close()
 
-        #print(num)
 
     # suspend
     # subprocess.call(["rtcwake", "-m", "mem", "-s", "900"])
-
-
-"""
-    ser.port = '/dev/cu.wchusbserial14110'
-    ser.open()
-
-    while True:
-        if (ser.inWaiting() > 0):
-            num = int(ser.readline())
-            print(num)
-"""
-
