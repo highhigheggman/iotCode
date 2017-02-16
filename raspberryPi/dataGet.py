@@ -28,6 +28,7 @@ if __name__ =='__main__':
     for i in ser_ls:
         print(i.device)
         print(i.location)
+        print(i.hwid)
 
         #num=ser.readline()
 
