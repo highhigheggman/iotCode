@@ -21,8 +21,6 @@ if __name__ =='__main__':
         timeout = 1
     )
 
-    num = 0
-
     # get a list of ports
     ser_ls = [i for i in serial.tools.list_ports.comports() if i.location is not None]
 
@@ -38,8 +36,8 @@ if __name__ =='__main__':
         while(ser.inWaiting() < 0):
             time.sleep(0.1)
 
-        # read data
-        num = int(ser.readline())
+        # read everything in the input buffer
+        num = int(ser.read(ser.inWaiting))
 
         print(i.device)
         print(num)

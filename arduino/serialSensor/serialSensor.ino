@@ -9,10 +9,10 @@ void setup() {
 void loop() {
   //read sensor val
   //valPin01 = analogRead(analogPin01);
-  valPin01 = 11;
+  valPin01 = 88;
   
   //send sensor val
-  Serial.println(valPin01, DEC);
+  Serial.print(valPin01, DEC);
   Serial.flush();
   delay(300);
 }
