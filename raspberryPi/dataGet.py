@@ -7,7 +7,7 @@ import time
 import subprocess
 from operator import attrgetter
 
-if __name__ =='__main__':
+def __main():
 
     # wait arduino bootup
     time.sleep(3.0)
@@ -47,3 +47,7 @@ if __name__ =='__main__':
 
     # suspend
     # subprocess.call(["rtcwake", "-m", "mem", "-s", "900"])
+
+if __name__ =='__main__':
+    __main()
+
