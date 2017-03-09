@@ -15,7 +15,7 @@ def __main():
     # serial setting
     ser = serial.Serial(
         baudrate = 9600,
-        bytesize = 8,
+        bytesize = serial.EIGHTBITS,
         parity = serial.PARITY_EVEN,
         stopbits = serial.STOPBITS_ONE,
         timeout = 1
@@ -27,23 +27,25 @@ def __main():
     # sort by port location
     ser_ls.sort(key=attrgetter('location'))
 
+    while True:
+        for i in ser_ls:
+            ser.port = i.device
+            ser.open()
 
-    for i in ser_ls:
-        ser.port = i.device
-        ser.open()
+            # wait data
+            while(ser.inWaiting() < 1):
+                time.sleep(0.1)
 
-        # wait data
-        while(ser.inWaiting() < 0):
-            time.sleep(0.1)
+            # read line
+            while True:
+                num = ser.readline().decode('utf-8').strip()
+                if num:
+                    break
 
-        # read line
-        num = int(ser.readline())
+            print(i.device)
+            print(num)
 
-        print(i.device)
-        print(num)
-
-        ser.close()
-
+            ser.close()
 
     # suspend
     # subprocess.call(["rtcwake", "-m", "mem", "-s", "900"])
