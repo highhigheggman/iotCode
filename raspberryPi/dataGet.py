@@ -36,8 +36,8 @@ def __main():
         while(ser.inWaiting() < 0):
             time.sleep(0.1)
 
-        # read everything in the input buffer
-        num = int(ser.read(ser.inWaiting))
+        # read line
+        num = int(ser.readline())
 
         print(i.device)
         print(num)
